@@ -9,28 +9,28 @@ function fillcircle(context, x,y,radius,color = "green"){
 
 (() => {
     
-    console.log("Hello , World !");
+    //console.log("Hello , World !");
     const canvas = document.getElementById("game");
-    const context = canvas.getContext("2d");
     const radius  = 69;
-    const Width =   window.innerWidth ;
-    const Height =  window.innerHeight;
-    canvas.width = Width;
-    canvas.height = Height;
-     console.log(Width);
-     console.log(Height);
-
+    const context = canvas.getContext("2d");
+    const speed = 0;
     let start ;
-    let x = Width / 2;
-    let y = Height / 2;
-    let dx = 100;
-    let dy = 100;
+    let x = radius + 10 ;
+    let y = radius + 10 ;
+    let dy = speed ;
+    let dx = speed ;
     function step(timestamp){
         if(start === undefined){
             start = timestamp;
         }
         const dt = (timestamp - start) * 0.001;
         start = timestamp;
+
+    const Width =   window.innerWidth ;
+    const Height =  window.innerHeight;
+    canvas.width = Width;
+    canvas.height = Height;
+
         if(x + radius   >= Width || x - radius <= 0 ) dx =-dx ;
         if(y + radius  >= Height || y - radius <= 0 ) dy =-dy ;
         x += dx * dt ;
@@ -41,8 +41,21 @@ function fillcircle(context, x,y,radius,color = "green"){
     }
      window.requestAnimationFrame(step);
 
-   // context.moveTo(0,0);
-   // context.lineTo(Width,Height );
-   // context.stroke();
+     document.addEventListener('keydown' , event => {
+         switch (event.code){
+             case 'KeyS' : {
+                 console.log("down");
+             } break;
+             case 'KeyW' : {
+                 console.log("up");
+             } break;
+             case 'KeyA' : {
+                 console.log("left");
+             } break;
+             case 'KeyD' : {
+                 console.log("right");
+             } break;
+         }
+     });
 
 })();
