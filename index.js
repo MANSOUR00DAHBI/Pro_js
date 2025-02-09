@@ -13,9 +13,13 @@ function fillcircle(context, x,y,radius,color = "green"){
     const canvas = document.getElementById("game");
     const context = canvas.getContext("2d");
     const radius  = 69;
-    const Width = canvas.width ;
-    const Height = canvas.height;
-    
+    const Width =   window.innerWidth ;
+    const Height =  window.innerHeight;
+    canvas.width = Width;
+    canvas.height = Height;
+     console.log(Width);
+     console.log(Height);
+
     let start ;
     let x = Width / 2;
     let y = Height / 2;
