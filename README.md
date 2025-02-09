@@ -2,6 +2,7 @@
 
 ## Quick Start 
 
-' ' 'console
 
-$iexplore.exe index.html
+' ' 'console
+$ iexplore.exe index.html
+' ' '
